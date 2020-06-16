@@ -1,0 +1,36 @@
+<!-- New Post Modal -->
+<div class="modal fade" id="posts-submit" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header">
+                <h5 class="modal-title no-select">New Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="text-white">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/submit" id="new_post" method="post" class="mt-2">
+                    <div class="form-group md-input">
+                        <input type="text" name="title" class="md-form-control bg-dark text-white" placeholder="Title" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label class="text-white">Title</label>
+                    </div>
+                    <div class="form-group md-input">
+                        <input type="url" name="url" class="md-form-control bg-dark text-white"  placeholder="Link" required> <!--placeholder="https://reddit-js.herokuapp.com"-->
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label class="text-white">Link</label>
+                    </div>
+                    <div class="form-group md-input">
+                        <textarea name="desc" class="md-form-control bg-dark text-white" placeholder="Description" required></textarea>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label class="text-white">Description</label>
+                    </div>
+                </form>
+                <button type='submit' form="new_post" class='btn btn-success float-right'>Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

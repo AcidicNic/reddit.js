@@ -2,10 +2,16 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const hbs = require('express-handlebars');
+const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
 
-const indexRouter = require('./routes/index');
+const postRouter = require('./routes/posts');
 
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 
 app.engine('hbs', hbs({
   extname: '.hbs',
@@ -17,12 +23,14 @@ app.set('view engine', 'hbs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+require('./data/reddit-db');
+
 // Routes
-app.use('/', indexRouter);
+app.use('/', postRouter);
 
-
-app.listen(process.env.PORT, () => {
-    console.log(`Server Started: http://localhost:${process.env.PORT || 80}`);
+const port = process.env.PORT || 80;
+app.listen(port, () => {
+    console.log(`Server Started: http://localhost:${port}`);
   });
 
 module.exports = app;

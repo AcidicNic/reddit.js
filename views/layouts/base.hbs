@@ -27,16 +27,18 @@
                 </button>
 
                 <!-- Heading -->
-                <a class="no-select no_ul text-white h1 mr-auto ml-3" href="/"><i class="fas fa-dumpster-fire"> </i> Reddit.js</a>
+                <a class="no-ul text-white h1 ml-3" href="/"><i class="fas fa-dumpster-fire"></i> Reddit.js</a>
+                <button type="button" class="btn btn-light ml-3" data-toggle="modal" data-target="#posts-submit">New Post</button>
+
+                <div class="mr-auto"></div>
             </nav>
             <div class="collapse" id="navbarToggleExternalContent">
-                <div class="bg-dark p-2">
-                    <div class="text-white text-center">
-                        navbar stuff
-                    </div>
+                <div class="bg-dark text-white text-center">
+                    sub list goes here
                 </div>
             </div>
         </div>
+        {{> posts-submit }}
         <div class="content-wrap w-75 mx-auto my-4">
             {{{body}}}
         </div>
@@ -44,13 +46,14 @@
 
     <!-- footer -->
     <footer id="footer" class="w-100 text-center bg-dark">
-        <div class="h-100 d-flex text-white justify-content-center align-items-center">
+        <div class="h-100 d-flex text-white justify-content-center align-items-center p-1">
             <a class="no-ul mx-2" href="https://github.com/AcidicNic/reddit.js">
-                <i class="fab fa-github"></i> Github
+                <i class="fab fa-github"></i> Source Code <i class="fas fa-heart"></i>
             </a>
         </div>
     </footer>
 
+    <!-- jquery, popper, & bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"

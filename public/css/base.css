@@ -9,8 +9,9 @@ body {
 
 /* my dynamic footer :) */
 html, body { min-height: 100vh; }
-.page-wrap { min-height: 93vh; display: block; }
+#page-wrap { min-height: 93vh; display: block; }
 #footer { height: 7vh; opacity: 0.75; }
+
 .no-ul:hover, .no-ul:link, .no-ul:visited, .no-ul:hover, .no-ul:active { color: white; text-decoration: none; }
 
 

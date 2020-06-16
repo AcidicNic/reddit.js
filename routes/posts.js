@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     });
 });
 
-/* Get Single Post */
+/* Submit Post */
 router.get('/submit', (req, res) => {
     const post = new Post(req.body);
     post.save((err, post) => {
@@ -28,6 +28,17 @@ router.post('/submit', (req, res) => {
     post.save((err, post) => {
         return res.redirect(`/`);
     })
+});
+
+/* View Single Post */
+router.get("/posts/:id", function(req, res) {
+  Post.findById(req.params.id).lean()
+    .then(post => {
+      res.render("posts-show", { post });
+    })
+    .catch(err => {
+      console.log(err.message);
+    });
 });
 
 module.exports = router;

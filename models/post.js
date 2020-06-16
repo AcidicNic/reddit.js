@@ -6,7 +6,8 @@ const PostSchema = new Schema({
   updatedAt: { type: Date },
   title: { type: String, required: true },
   url: { type: String, required: true },
-  desc: { type: String, required: true }
+  desc: { type: String, required: true },
+  dump: { type: String, required: true }
 });
 
 PostSchema.pre("save", function(next) {

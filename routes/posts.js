@@ -41,4 +41,15 @@ router.get("/posts/:id", function(req, res) {
     });
 });
 
+/* Dump */
+router.get("/d/:dump", function(req, res) {
+  Post.find({ dump: req.params.dump }).lean()
+    .then(posts => {
+      res.render("home", { posts, dump: req.params.dump });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
 module.exports = router;

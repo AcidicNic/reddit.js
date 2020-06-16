@@ -27,14 +27,20 @@
                 </button>
 
                 <!-- Heading -->
-                <a class="no-ul text-white h1 ml-3" href="/"><i class="fas fa-dumpster-fire"></i> Reddit.js</a>
+                <a class="no-ul text-white h1 ml-3" href="/"><i class="fas fa-dumpster-fire"></i> DumpFire</a>
+                <!-- New Post btn -->
                 <button type="button" class="btn btn-light ml-3" data-toggle="modal" data-target="#posts-submit">New Post</button>
+                <!-- Sub Name -->
+                {{#if dump}}
+                    <a class="no-ul text-white ml-3" href="/d/{{dump}}">d/{{dump}}</a>
+                {{/if}}
+
 
                 <div class="mr-auto"></div>
             </nav>
             <div class="collapse" id="navbarToggleExternalContent">
-                <div class="bg-dark text-white text-center">
-                    sub list goes here
+                <div class="bg-dark text-white text-center pb-2">
+                    dump list goes here
                 </div>
             </div>
         </div>

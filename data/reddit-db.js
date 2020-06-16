@@ -1,19 +1,15 @@
 const mongoose = require("mongoose");
 assert = require("assert");
 
+mongoose.connection.on("error", console.error.bind(console, "MongoDB connection Error:"));
 const url = "mongodb://localhost/reddit-db";
 mongoose.Promise = global.Promise;
 mongoose.connect(
-  url,
-  { useNewUrlParser: true },
-  function(err, db) {
-    assert.equal(null, err);
-    console.log("Connected successfully to database");
-
-    // db.close(); turn on for testing
-  }
+  "mongodb://localhost/reddit-db",
+  { useNewUrlParser: true }
 );
 mongoose.connection.on("error", console.error.bind(console, "MongoDB connection Error:"));
 mongoose.set("debug", true);
 
 module.exports = mongoose.connection;
+

@@ -1,3 +1,17 @@
 <div class="bg-light">
-    <p>Ruk LOVES Nicole</p>
+    {{#if posts}}
+    {{#each posts}}
+        <div class="w-100 lead mb-1">
+            {{this.title}}
+        </div>
+        <div class="w-100 mb-1">
+            {{this.desc}}
+        </div>
+        <div class="w-100 mb-1">
+            <a href="{{this.url}}" target="_blank">{{this.url}}</a>
+        </div>
+    {{/each}}
+    {{else}}
+        Oops, I can't find any posts!  :(
+    {{/if}}
 </div>

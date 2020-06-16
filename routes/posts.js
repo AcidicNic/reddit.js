@@ -4,14 +4,14 @@ const router = express.Router();
 const Post = require('../models/post');
 
 /* Get Home */
-router.get('/', async (req, res, next) => {
-    try {
-        posts = Post.find({});
-        res.render('home', {posts});
-    } catch (err) {
-        console.log(err);
-        return next(err);
-    }
+router.get('/', (req, res) => {
+    Post.find({}).lean()
+    .then(posts => {
+        res.render("home", { posts });
+    })
+    .catch(err => {
+        console.log(err.message);
+    });
 });
 
 /* Get Single Post */

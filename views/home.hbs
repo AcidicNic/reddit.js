@@ -2,17 +2,17 @@
     {{#if posts}}
     {{#each posts}}
         <div class="w-100 lead mb-1">
-            <div class="lead"><a href="/posts/{{this._id}}">{{this.title}}</a></div>
+            <a href="/d/{{this.dump}}/{{this._id}}">{{this.title}}</a>
         </div>
+        <a href="/d/{{this.dump}}">d/{{this.dump}}</a>
         <div class="w-100 mb-1">
             {{this.desc}}
         </div>
-        <div class="w-100 mb-1">
+        <div class="w-100 mb-4">
             <a href="{{this.url}}" target="_blank">{{this.url}}</a>
         </div>
-        <a href="/d/{{this.dump}}">d/{{this.dump}}</a>
     {{/each}}
     {{else}}
-        Oops, I can't find any posts!  :(
+        Oops, I can't find any posts! :(
     {{/if}}
 </div>

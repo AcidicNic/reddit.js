@@ -16,27 +16,35 @@
                         <span class="bar"></span>
                         <label class="text-white">Title</label>
                     </div>
-                    <div class="form-group md-input">
-                        <input type="url" name="url" class="md-form-control bg-dark text-white" placeholder="Link" required> <!--placeholder="https://reddit-js.herokuapp.com"-->
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label class="text-white">Link</label>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="md-input">
+                                <input type="url" name="url" class="md-form-control bg-dark text-white" placeholder="Link" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label class="text-white">Link</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class=" md-input">
+                                <input type="text" name="dump" class="md-form-control bg-dark text-white" placeholder="Dump" value="{{#if dump}}{{dump}}{{/if}}" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label class="text-white">Dump</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group md-input">
-                        <textarea name="desc" class="md-form-control bg-dark text-white" placeholder="Description" required></textarea>
+                        <textarea name="desc" class="md-form-control bg-dark text-white scroll" placeholder="Description" required></textarea>
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label class="text-white">Description</label>
                     </div>
-                    <div class="form-group md-input">
-                        <input type="text" name="dump" class="md-form-control bg-dark text-white" placeholder="d/Dump" value="{{#if dump}}{{dump}}{{/if}}" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label class="text-white">d/Dump</label>
-                    </div>
+
                 </form>
                 <button type='submit' form="new_post" class='btn btn-success float-right'>Submit</button>
             </div>
         </div>
     </div>
 </div>
+<script src="../js/autoResizeTextarea.js"></script>

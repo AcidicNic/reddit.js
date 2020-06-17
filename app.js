@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 
 const postRouter = require('./routes/posts');
+const commentRouter = require('./routes/comments.js');
 
 const app = express();
 
@@ -21,12 +22,14 @@ app.engine('hbs', hbs({
 }));
 app.set('view engine', 'hbs');
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.normalize(path.join(__dirname, 'public'))));
 
 require('./data/reddit-db');
 
 // Routes
 app.use('/', postRouter);
+app.use('/', commentRouter);
+
 
 const port = process.env.PORT || 80;
 app.listen(port, () => {

@@ -14,7 +14,9 @@ html, body { min-height: 100vh; }
 
 .no-ul:hover, .no-ul:link, .no-ul:visited, .no-ul:hover, .no-ul:active { color: white; text-decoration: none; }
 
-
+.scroll {
+   min-height: 4em
+ }
 
 
 .md-input {
@@ -58,7 +60,7 @@ html, body { min-height: 100vh; }
     opacity: 0.5;
 }
 .md-input .md-form-control:focus ~ label, .md-input .md-form-control:valid ~ label {
-    top: -15px;
+    top: -20px;
     font-size: 14px;
 }
 .md-input .bar:before, .md-input .bar:after {

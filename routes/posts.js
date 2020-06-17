@@ -31,18 +31,21 @@ router.post('/submit', (req, res) => {
 });
 
 /* View Single Post */
-router.get("/posts/:id", function(req, res) {
-  Post.findById(req.params.id).lean()
+router.get("/d/:dump/:id", (req, res) => {
+    Post.findById(req.params.id).populate('comments').lean()
     .then(post => {
-      res.render("posts-show", { post });
+        if (post.dump === req.params.dump) {
+            res.render("posts-show", { post, dump: req.params.dump });
+        }
+        // return res.redirect(`/d/${req.params.dump}/${req.params.id}`);
     })
     .catch(err => {
-      console.log(err.message);
+        res.render("err", { err: "Oops, looks like that post doesn't exist!" });
     });
 });
 
 /* Dump */
-router.get("/d/:dump", function(req, res) {
+router.get("/d/:dump", (req, res) => {
   Post.find({ dump: req.params.dump }).lean()
     .then(posts => {
       res.render("home", { posts, dump: req.params.dump });

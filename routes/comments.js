@@ -5,22 +5,21 @@ const Post = require('../models/post');
 const Comment = require('../models/comment');
 
 router.post("/d/:dump/:postId/comments", (req, res) => {
-  const comment = new Comment(req.body);
-  comment
-    .save()
+    const comment = new Comment(req.body);
+    comment.save()
     .then(comment => {
-      return Post.findById(req.params.postId);
+        return Post.findById(req.params.postId);
     })
     .then(post => {
-      post.comments.unshift(comment);
-      return post.save();
+        post.comments.unshift(comment);
+        return post.save();
     })
     .then(post => {
-      res.redirect(`/`);
+        res.redirect('back');
     })
     .catch(err => {
-      console.log(err);
-    });
+        console.log(err);
+});
 });
 
 module.exports = router;
